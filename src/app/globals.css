@@ -1,18 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  /* Background: pure black grounds the luminous gradients; warm near-black competed with them */
   --background: #000000;
-  /* Panels: very dark cool-tinted surface instead of warm brown */
   --background-2: #080810;
-  /* Foreground: clean near-white, slightly cool */
   --foreground: #eeeef4;
-  /* Muted text: cool gray instead of warm sand */
   --foreground-muted: #8888a0;
-  /* Borders: cool-tinted to recede on black without competing with the artwork's colors */
   --border-hairline: rgba(200, 210, 255, 0.09);
   --border-hairline-strong: rgba(200, 210, 255, 0.2);
-  /* Accent: low-saturation lavender — UI chrome that steps back while the gradients lead */
   --accent: #a0a0cc;
   --accent-soft: rgba(160, 160, 204, 0.12);
 }
@@ -41,8 +35,6 @@ body {
   }
 }
 
-/* Site shell: very subtle cool-blue/violet vignettes — present enough to give the black
-   depth but never competing with whatever gradient artwork sits on top of it */
 .site-shell {
   background-color: var(--background);
   background-image:
@@ -50,57 +42,13 @@ body {
     radial-gradient(circle at 10% 80%, rgba(40, 60, 160, .06), transparent 32rem);
 }
 
-/* --- legacy classes kept as-is for pages not yet redesigned (home, about, gallery) --- */
-.eyebrow {
-  color: #a8f85b;
-  font-family: var(--font-pixelify-sans);
-  font-size: .8rem;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-}
-
-.pixel-button {
-  display: inline-flex;
-  align-items: center;
-  gap: .7rem;
-  padding: .85rem 1.1rem;
-  font-family: var(--font-pixelify-sans);
-  font-size: 1.05rem;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, .3);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.pixel-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, .35);
-}
-
-.art-grid {
-  background: rgba(6, 12, 22, .68);
-  border: 1px solid rgba(255, 255, 255, .12);
-  box-shadow: 14px 14px 0 rgba(0, 0, 0, .22);
-}
-
-.mint-frame>div {
-  max-width: 28rem;
-  border-color: rgba(168, 248, 91, .6);
-  background: rgba(5, 13, 23, .7);
-  box-shadow: 10px 10px 0 rgba(0, 0, 0, .24);
-}
-
-/* --- new editorial / gallery system --- */
+/* ── Editorial utility classes ── */
 .eyebrow-quiet {
   color: var(--foreground-muted);
   font-family: var(--font-geist-sans);
   font-size: .72rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-}
-
-.plaque {
-  font-family: var(--font-fraunces), serif;
-  font-style: italic;
-  color: var(--foreground-muted);
 }
 
 .quiet-button {
@@ -114,6 +62,7 @@ body {
   border: 1px solid var(--border-hairline-strong);
   color: var(--foreground);
   background: transparent;
+  cursor: pointer;
   transition: border-color .2s ease, background-color .2s ease, color .2s ease;
 }
 
@@ -176,4 +125,10 @@ body {
 .studio-input::placeholder {
   color: var(--foreground-muted);
   opacity: .55;
+}
+
+.plaque {
+  font-family: var(--font-fraunces), serif;
+  font-style: italic;
+  color: var(--foreground-muted);
 }
