@@ -1,16 +1,16 @@
 import { createPublicClient, decodeFunctionData, decodeEventLog, http, zeroAddress } from "viem";
-import { gleeABI, GLEE_CONTRACT_ADDRESS, GLEE_V2_CONTRACT_ADDRESS, gleeV2ABI } from "@/utils/contractAbi";
+import { gleeAbi, GLEE_CONTRACT_ADDRESS } from "@/utils/contractAbi";
 //import { baseSepolia, BASE_SEPOLIA_RPC_URL } from "@/utils/chain";
 import { baseSepolia } from "viem/chains";
 
 const rpc = "https://base-sepolia.g.alchemy.com/v2/alch_ifvAZ57PVKAumhd4037lE"
 
 const client = createPublicClient({ chain: baseSepolia, transport: http(rpc) });
-const contracts = [GLEE_CONTRACT_ADDRESS.toLowerCase(), GLEE_V2_CONTRACT_ADDRESS.toLowerCase()];
+const contracts = [GLEE_CONTRACT_ADDRESS.toLowerCase(), GLEE_CONTRACT_ADDRESS.toLowerCase()];
 
 export async function verifyMintTransaction(hash: `0x${string}`, wallet: string) {
   console.log("HASH: ", hash);
-  
+
   const tx = await client.getTransaction({ hash });
 
   console.log("TX: ", tx);
@@ -18,19 +18,19 @@ export async function verifyMintTransaction(hash: `0x${string}`, wallet: string)
   if (!tx.to || !contracts.includes(tx.to.toLowerCase())) return null;
   if (tx.from.toLowerCase() !== wallet.toLowerCase()) return null;
 
-  let functionName: "mintCanvas" | "mintWhitelist";
+  let functionName: "mintPublic" | "mintWhitelist";
   let quantity: bigint;
   try {
-    const decoded = decodeFunctionData({ abi: gleeV2ABI, data: tx.input });
-    if (decoded.functionName !== "mintCanvas" && decoded.functionName !== "mintWhitelist") return null;
+    const decoded = decodeFunctionData({ abi: gleeAbi, data: tx.input });
+    if (decoded.functionName !== "mintPublic" && decoded.functionName !== "mintWhitelist") return null;
     functionName = decoded.functionName;
     quantity = decoded.args[0] as bigint;
 
     console.log("DECODED FUNCTION: ", decoded);
 
   } catch {
-    const decoded = decodeFunctionData({ abi: gleeV2ABI, data: tx.input });
-    if (decoded.functionName !== "mintCanvas" && decoded.functionName !== "mintWhitelist") return null;
+    const decoded = decodeFunctionData({ abi: gleeAbi, data: tx.input });
+    if (decoded.functionName !== "mintPublic" && decoded.functionName !== "mintWhitelist") return null;
     functionName = decoded.functionName;
     quantity = decoded.args[0] as bigint;
 
@@ -43,7 +43,7 @@ export async function verifyMintTransaction(hash: `0x${string}`, wallet: string)
   const mintedCount = receipt.logs.filter((log) => {
     try {
       const decoded = decodeEventLog({
-        abi: gleeV2ABI,
+        abi: gleeAbi,
         data: log.data,
         topics: log.topics,
       });

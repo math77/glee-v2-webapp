@@ -218,7 +218,7 @@ export default function MintCanvas({ fallbackPriceEth = 0.003, onMintSuccess }: 
   const { data: wlDeadline } = useReadContract({ ...contract, functionName: "wlDeadline" });
 
   //GETTING ERROR HERE:
-  const { data: onChainPrice } = useReadContract({ ...contract, functionName: "mintPrice" });
+  const { data: onChainPrice } = useReadContract({ ...contract, functionName: "publicMintPrice" });
   
   const { data: totalMintedSoFar, refetch: refetchTotalMinted } = useReadContract({ ...contract, functionName: "totalSupply" });
   
@@ -275,7 +275,7 @@ export default function MintCanvas({ fallbackPriceEth = 0.003, onMintSuccess }: 
   const { data: hash, error, isPending, writeContract } = useWriteContract();
   const canSimulate = isConnected && isMintOpen === true && totalPriceWei !== undefined && maxQuantity > 0;
   const { error: whitelistSimulationError, isPending: whitelistSimulationPending } = useSimulateContract({ ...contract, functionName: "mintWhitelist", args: whitelistStatus ? [BigInt(quantity), whitelistStatus.proof] : undefined, value: totalPriceWei, query: { enabled: canSimulate && mode === "whitelist" && Boolean(whitelistStatus?.proof.length) } });
-  const { error: publicSimulationError, isPending: publicSimulationPending } = useSimulateContract({ ...contract, functionName: "mintCanvas", args: [BigInt(quantity)], value: totalPriceWei, query: { enabled: canSimulate && mode === "public" } });
+  const { error: publicSimulationError, isPending: publicSimulationPending } = useSimulateContract({ ...contract, functionName: "mintPublic", args: [BigInt(quantity)], value: totalPriceWei, query: { enabled: canSimulate && mode === "public" } });
   const simulateError = mode === "whitelist" ? whitelistSimulationError : publicSimulationError;
   const isSimulatePending = mode === "whitelist" ? whitelistSimulationPending : publicSimulationPending;
   const hasInsufficientFundsError = Boolean(simulateError && (simulateError.message.includes("insufficient funds") || (simulateError as { shortMessage?: string })?.shortMessage?.includes("insufficient funds")));
@@ -318,7 +318,7 @@ export default function MintCanvas({ fallbackPriceEth = 0.003, onMintSuccess }: 
     if (mode === "whitelist" && whitelistStatus) {
       writeContract({ ...contract, functionName: "mintWhitelist", args: [BigInt(quantity), whitelistStatus.proof], value: totalPriceWei });
     } else {
-      writeContract({ ...contract, functionName: "mintCanvas", args: [BigInt(quantity)], value: totalPriceWei });
+      writeContract({ ...contract, functionName: "mintPublic", args: [BigInt(quantity)], value: totalPriceWei });
     }
   };
 

@@ -18,7 +18,7 @@ const mechanics = [
   {
     number: "02",
     title: "Alive with color.",
-    body: "Each piece is a radial gradient unique to its token ID. The algorithm selects hues, spread, and layering at mint time — no two tokens share the same visual signature.",
+    body: "Each piece is a radial gradient unique to its token ID + owner wallet. The algorithm selects hues, spread, and layering at mint time — no two tokens share the same visual signature.",
   },
   {
     number: "03",
