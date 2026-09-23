@@ -23,7 +23,7 @@ const PROJECT_ID = process.env.NEXT_PUBLIC_PROJECT_ID as string;
 
 const config = getDefaultConfig({
   appName: 'GLEE',
-  projectId: PROJECT_ID,
+  projectId: "cb51ad1ec3ea318b8c494b7811232d69",
   chains: [baseSepolia],
   ssr: true,
   syncConnectedChain: true,
