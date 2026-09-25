@@ -11,7 +11,7 @@ import {
 import { WagmiProvider } from 'wagmi';
 import { http } from "wagmi";
 
-import { baseSepolia, BASE_SEPOLIA_RPC_URL } from "../utils/chain";
+import { baseSepolia, base, BASE_MAINNET_RPC_URL, BASE_SEPOLIA_RPC_URL } from "../utils/chain";
 
 import {
   QueryClientProvider,
@@ -24,11 +24,11 @@ const PROJECT_ID = process.env.NEXT_PUBLIC_PROJECT_ID as string;
 const config = getDefaultConfig({
   appName: 'GLEE',
   projectId: "cb51ad1ec3ea318b8c494b7811232d69",
-  chains: [baseSepolia],
+  chains: [base],
   ssr: true,
   syncConnectedChain: true,
   transports: {
-    [baseSepolia.id]: http(BASE_SEPOLIA_RPC_URL),
+    [base.id]: http(BASE_MAINNET_RPC_URL),
   },
 });
 
