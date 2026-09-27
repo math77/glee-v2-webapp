@@ -7,6 +7,7 @@ import WalletButton from "../WalletButton/WalletButton";
 
 const links = [
   { href: "/gallery", label: "Gallery" },
+  { href: "/transfer", label: "Transfer" },
   { href: "/about", label: "About" },
 ];
 
