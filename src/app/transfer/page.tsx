@@ -38,7 +38,7 @@ export default function TransferPreviewPage() {
 
     const parsedTokenId = BigInt(tokenId.trim());
 
-    if (parsedTokenId < 1n) {
+    if (parsedTokenId < BigInt(1)) {
       setState("error");
       setMessage("Token ID must be greater than zero.");
       return;
