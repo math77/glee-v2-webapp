@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { isAddress, type Address } from "viem";
 import { usePublicClient } from "wagmi";
 import Nav from "@/components/Nav/Nav";
-import { GLEE_CONTRACT_ADDRESS, gleeAbi } from "@/utils/contractAbi";
+import { gleeV2Abi, GLEE_V2_CONTRACT_ADDRESS } from "@/utils/contractAbi";
 
 type PreviewState = "idle" | "loading" | "success" | "error";
 
@@ -56,8 +56,8 @@ export default function TransferPreviewPage() {
 
     try {
       const locked = await publicClient.readContract({
-        address: GLEE_CONTRACT_ADDRESS,
-        abi: gleeAbi,
+        address: GLEE_V2_CONTRACT_ADDRESS,
+        abi: gleeV2Abi,
         functionName: "isLocked",
         args: [parsedTokenId],
       });
@@ -69,8 +69,8 @@ export default function TransferPreviewPage() {
       }
 
       const nextSvg = await publicClient.readContract({
-        address: GLEE_CONTRACT_ADDRESS,
-        abi: gleeAbi,
+        address: GLEE_V2_CONTRACT_ADDRESS,
+        abi: gleeV2Abi,
         functionName: "previewNewGradient",
         args: [trimmedOwner as Address, parsedTokenId],
       });
