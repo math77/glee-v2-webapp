@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { useAccount, useReadContract, useReadContracts, useWaitForTransactionReceipt, useWriteContract } from "wagmi";
 import Nav from "@/components/Nav/Nav";
-import { gleeAbi, GLEE_CONTRACT_ADDRESS } from "@/utils/contractAbi";
+import { gleeV2Abi, GLEE_V2_CONTRACT_ADDRESS } from "@/utils/contractAbi";
 import { SITE_URL } from "@/utils/siteConfig";
 import { useToast } from "@/components/Toast/ToastProvider";
 
@@ -95,7 +95,7 @@ function LockButton({ tokenId, isLocked, onLocked }: { tokenId: bigint; isLocked
       disabled={busy}
       onClick={(e) => {
         e.stopPropagation();
-        writeContract({ address: GLEE_CONTRACT_ADDRESS, abi: gleeAbi, functionName: "lock", args: [tokenId] });
+        writeContract({ address: GLEE_V2_CONTRACT_ADDRESS, abi: gleeV2Abi, functionName: "lock", args: [tokenId] });
       }}
       className="flex items-center gap-1 font-[family-name:var(--font-geist-mono)] text-[10px] text-[var(--foreground-muted)] transition-colors hover:text-[var(--foreground)] disabled:opacity-40"
       aria-label={`Lock GLEE #${tokenId}`}
@@ -122,12 +122,12 @@ export default function GalleryPage({ initialTokenId }: GalleryPageProps) {
   const { address, isConnected } = useAccount();
 
   const { data: totalSupply = BigInt(0), isPending: supplyLoading } = useReadContract({
-    address: GLEE_CONTRACT_ADDRESS, abi: gleeAbi, functionName: "totalSupply",
+    address: GLEE_V2_CONTRACT_ADDRESS, abi: gleeV2Abi, functionName: "totalSupply",
   });
 
   // Owned token IDs
   const { data: myTokenIds = [] } = useReadContract({
-    address: GLEE_CONTRACT_ADDRESS, abi: gleeAbi, functionName: "walletOfOwner",
+    address: GLEE_V2_CONTRACT_ADDRESS, abi: gleeV2Abi, functionName: "walletOfOwner",
     args: address ? [address] : undefined,
     query: { enabled: Boolean(address) && mode === "mine" },
   });
@@ -136,8 +136,8 @@ export default function GalleryPage({ initialTokenId }: GalleryPageProps) {
   // Returns bool[] in the same order as myTokenIds.
   const myIds = myTokenIds as bigint[];
   const { data: lockedStatuses = [], refetch: refetchLocked } = useReadContract({
-    address: GLEE_CONTRACT_ADDRESS,
-    abi: gleeAbi,
+    address: GLEE_V2_CONTRACT_ADDRESS,
+    abi: gleeV2Abi,
     functionName: "isLockedBatch",
     args: myIds.length > 0 ? [myIds] : undefined,
     query: { enabled: myIds.length > 0 && mode === "mine" },
@@ -169,7 +169,7 @@ export default function GalleryPage({ initialTokenId }: GalleryPageProps) {
 
   // Fetch SVGs
   const svgContracts = useMemo(
-    () => displayIds.map((id) => ({ address: GLEE_CONTRACT_ADDRESS, abi: gleeAbi, functionName: "generateSvg" as const, args: [id] as const })),
+    () => displayIds.map((id) => ({ address: GLEE_V2_CONTRACT_ADDRESS, abi: gleeV2Abi, functionName: "generateSvg" as const, args: [id] as const })),
     [displayIds]
   );
   const { data: svgResults = [], isPending: svgsLoading } = useReadContracts({ contracts: svgContracts, query: { enabled: displayIds.length > 0 } });

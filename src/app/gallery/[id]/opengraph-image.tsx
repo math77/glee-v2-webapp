@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { createPublicClient, http } from "viem";
 import { baseSepolia } from "viem/chains";
-import { gleeAbi, GLEE_CONTRACT_ADDRESS } from "@/utils/contractAbi";
+import { gleeV2Abi, GLEE_V2_CONTRACT_ADDRESS } from "@/utils/contractAbi";
 import { BASE_SEPOLIA_RPC_URL } from "@/utils/chain";
 
 export const size = { width: 1200, height: 630 };
@@ -30,8 +30,8 @@ export default async function Image({ params }: { params: Promise<{ id: string }
   try {
     const client = createPublicClient({ chain: baseSepolia, transport: http(BASE_SEPOLIA_RPC_URL) });
     const svgRaw = await client.readContract({
-      address: GLEE_CONTRACT_ADDRESS,
-      abi: gleeAbi,
+      address: GLEE_V2_CONTRACT_ADDRESS,
+      abi: gleeV2Abi,
       functionName: "generateSvg",
       args: [BigInt(id)],
     }) as string;
