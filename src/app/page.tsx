@@ -90,7 +90,7 @@ function HeroSection() {
           animate="show"
           variants={stagger}
         >
-          <motion.p variants={fadeUp} className="eyebrow-quiet mb-6">7,777 pieces · Robinhood Chain · Fully onchain</motion.p>
+          <motion.p variants={fadeUp} className="eyebrow-quiet mb-6">4000 pieces · Robinhood Chain · Fully onchain</motion.p>
 
           <motion.h1
             variants={fadeUp}
@@ -334,7 +334,7 @@ function MechanicsSection() {
     {
       number: "02",
       headline: "The collection moves together.",
-      body: "A single shared clock runs across all 7,777 tokens. Every transfer anywhere in the collection advances it. High market activity darkens everyone's art. Quiet periods let the gradient breathe.",
+      body: "A single shared clock runs across all 4000 tokens. Every transfer anywhere in the collection advances it. High market activity darkens everyone's art. Quiet periods let the gradient breathe.",
     },
     {
       number: "03",
@@ -457,14 +457,16 @@ function ResetSection() {
             </h2>
             <p className="mt-6 leading-relaxed text-[var(--foreground-muted)]">
               When the decay clock reaches its terminal point, the collection doesn't
-              end — the clock resets to zero. Every GLEE returns to its original gradient.
+              need to end — the clock can be reseted back to zero. Every GLEE not locked returns to its original gradient.
               The cycle starts over.
             </p>
+            {/*
             <p className="mt-4 leading-relaxed text-[var(--foreground-muted)]">
               What triggers the reset? That's still being decided — by the community.
               What matters is that the power to bring the collection back to life exists,
               and it belongs to the people who hold it.
             </p>
+            */}
           </motion.div>
 
           {/* Animated cycle visualization */}
@@ -633,7 +635,7 @@ function CtaSection() {
             <OpenSeaButton className="px-10 py-3.5 text-sm" />
           </motion.div>
           <motion.p variants={fadeUp} className="mt-6 text-xs text-[var(--foreground-muted)]">
-            7,777 pieces · Robinhood Chain · Fully onchain
+            4000 pieces · Robinhood Chain · Fully onchain
           </motion.p>
         </motion.div>
       </div>
