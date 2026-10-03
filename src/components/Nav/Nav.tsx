@@ -26,7 +26,7 @@ export default function Nav() {
           Glee<span className="text-[var(--accent)]">.</span>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop nav 
         <nav className="hidden items-center gap-1 md:flex">
           {links.map((link) => (
             <Link
@@ -39,6 +39,7 @@ export default function Nav() {
             </Link>
           ))}
         </nav>
+        */}
 
         <div className="hidden items-center gap-3 md:flex">
           <WalletButton iconVersion={false} shape="" backgroundColor="quiet-button quiet-button--filled" paddingX="px-4" />
