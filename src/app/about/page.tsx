@@ -116,21 +116,21 @@ export default function AboutPage() {
               <ul className="mt-6 space-y-4">
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
                   {/* TODO: GTD benefit */}
-                  <span className="block text-[var(--foreground-muted)]">Mint fee half of the public price</span>
+                  <span className="block text-[var(--foreground-muted)]">— Mint fee half of the public price</span>
                 </li>
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
                   {/* TODO: GTD benefit with sub-items */}
                   <span className="block text-[var(--foreground-muted)]">— Industrial Imagination Board Points</span>
                   <ul className="mt-2 ml-4 space-y-1.5 border-l border-[var(--border-hairline)] pl-4">
-                    <li className="text-xs text-[var(--foreground-muted)]">GTD eligible → 100 points</li>
-                    <li className="text-xs text-[var(--foreground-muted)]">Each GLEE minted via GTD → 75 points</li>
-                    <li className="text-xs text-[var(--foreground-muted)]">Each GLEE minted via public → 50 points</li>
+                    <li className="text-xs text-[var(--foreground-muted)]">→ GTD eligible → 100 points</li>
+                    <li className="text-xs text-[var(--foreground-muted)]">→ Each GLEE minted via GTD → 75 points</li>
+                    <li className="text-xs text-[var(--foreground-muted)]">→ Each GLEE minted via public → 50 points</li>
                   </ul>
                 </li>
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
                   {/* TODO: GTD benefit */}
                   <span className="block text-[var(--foreground-muted)]">
-                    Participate on the free NFT gift raffle event (happens post mint sold out; Only those who minted and have points can participate) → 20 NFTs; 10 winnners; 2 NFTs per winner.
+                    — Participate on the free NFT gift raffle event (happens post mint sold out; Only those who minted and have points can participate) → 20 NFTs; 10 winnners; 2 NFTs per winner.
                   </span>
                 </li>
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
