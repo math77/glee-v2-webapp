@@ -95,7 +95,7 @@ export default function AboutPage() {
           </motion.div>
         </Section>
 
-        {/* ── GTD / PUBLIC MINT BENEFITS ── */}
+        {/* ── GTD / PUBLIC MINT BENEFITS ── 
         <Section>
           <motion.div variants={fadeUp}>
             <p className="eyebrow-quiet">Mint mechanics</p>
@@ -104,22 +104,22 @@ export default function AboutPage() {
               <span className="text-[var(--accent)]">What you get.</span>
             </h2>
             <p className="mt-6 max-w-xl leading-relaxed text-[var(--foreground-muted)]">
-              {/* TODO: add a one-line description of the mint structure here */}
+              {/* TODO: add a one-line description of the mint structure here *@/}
             </p>
           </motion.div>
 
           <motion.div variants={fadeUp} className="mt-12 grid gap-px border border-[var(--border-hairline)] bg-[var(--border-hairline)] sm:grid-cols-2">
 
-            {/* GTD column */}
+            {/* GTD column *@/}
             <div className="bg-[var(--background)] p-8">
               <span className="font-[family-name:var(--font-geist-mono)] text-xs uppercase tracking-widest text-[var(--accent)]">Guaranteed (GTD)</span>
               <ul className="mt-6 space-y-4">
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
-                  {/* TODO: GTD benefit */}
+                  {/* TODO: GTD benefit *@/
                   <span className="block text-[var(--foreground-muted)]">— Mint fee half of the public price</span>
                 </li>
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
-                  {/* TODO: GTD benefit with sub-items */}
+                  {/* TODO: GTD benefit with sub-items *@/}
                   <span className="block text-[var(--foreground-muted)]">— Industrial Imagination Board Points</span>
                   <ul className="mt-2 ml-4 space-y-1.5 border-l border-[var(--border-hairline)] pl-4">
                     <li className="text-xs text-[var(--foreground-muted)]">→ GTD eligible → 100 points</li>
@@ -128,19 +128,19 @@ export default function AboutPage() {
                   </ul>
                 </li>
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
-                  {/* TODO: GTD benefit */}
+                  {/* TODO: GTD benefit *@/}
                   <span className="block text-[var(--foreground-muted)]">
                     — Participate on the free NFT gift raffle event (happens post mint sold out; Only those who minted and have points can participate) → 20 NFTs; 10 winnners; 2 NFTs per winner.
                   </span>
                 </li>
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
-                  {/* TODO: GTD benefit */}
+                  {/* TODO: GTD benefit *@/}
                   <span className="block text-[var(--foreground-muted)]">— Better positioned to FNSCN (future nice stuff coming next)</span>
                 </li>
               </ul>
             </div>
 
-            {/* Public column */}
+            {/* Public column *@/}
             <div className="bg-[var(--background)] p-8">
               <span className="font-[family-name:var(--font-geist-mono)] text-xs uppercase tracking-widest text-[var(--accent)]">FCFS/Public</span>
               <ul className="mt-6 space-y-4">
@@ -150,9 +150,9 @@ export default function AboutPage() {
                   <span className="block text-[var(--foreground-muted)]">— </span>
                   *#/}
                 </li>
-                */}
+                *@/}
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
-                  {/* TODO: Public benefit with sub-items */}
+                  {/* TODO: Public benefit with sub-items *@/}
                   <span className="block text-[var(--foreground-muted)]">— Industrial Imagination Board Points</span>
                   <ul className="mt-2 ml-4 space-y-1.5 border-l border-[var(--border-hairline)] pl-4">
                     <li className="text-xs text-[var(--foreground-muted)]">→ FCFS → 70 points</li>
@@ -161,7 +161,7 @@ export default function AboutPage() {
                   </ul>
                 </li>
                 <li className="text-sm leading-relaxed text-[var(--foreground)]">
-                  {/* TODO: Public benefit */}
+                  {/* TODO: Public benefit *@/}
                   <span className="block text-[var(--foreground-muted)]">— Participate on the free NFT gift raffle event (happens post mint sold out; Only those who minted and have points can participate) → 10 NFTs; 10 winnners; 1 NFT per winner.</span>
                 </li>
               </ul>
@@ -169,6 +169,7 @@ export default function AboutPage() {
 
           </motion.div>
         </Section>
+        */}
 
         {/* ── THE DECAY ── */}
         <Section>
