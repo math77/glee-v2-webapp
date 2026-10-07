@@ -90,7 +90,7 @@ function HeroSection() {
           animate="show"
           variants={stagger}
         >
-          <motion.p variants={fadeUp} className="eyebrow-quiet mb-6">4000 pieces · Robinhood Chain · Fully onchain</motion.p>
+          <motion.p variants={fadeUp} className="eyebrow-quiet mb-6">2200 pieces · 0.00077 ETH · Robinhood Chain · Fully onchain</motion.p>
 
           <motion.h1
             variants={fadeUp}
@@ -334,7 +334,7 @@ function MechanicsSection() {
     {
       number: "02",
       headline: "The collection moves together.",
-      body: "A single shared clock runs across all 4000 tokens. Every transfer anywhere in the collection advances it. High market activity darkens everyone's art. Quiet periods let the gradient breathe.",
+      body: "A single shared clock runs across all 2200 tokens. Every transfer anywhere in the collection advances it. High market activity darkens everyone's art. Quiet periods let the gradient breathe.",
     },
     {
       number: "03",
@@ -635,7 +635,7 @@ function CtaSection() {
             <OpenSeaButton className="px-10 py-3.5 text-sm" />
           </motion.div>
           <motion.p variants={fadeUp} className="mt-6 text-xs text-[var(--foreground-muted)]">
-            4000 pieces · Robinhood Chain · Fully onchain
+            2200 pieces · Robinhood Chain · Fully onchain
           </motion.p>
         </motion.div>
       </div>

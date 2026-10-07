@@ -44,7 +44,7 @@ export default function AboutPage() {
             <span className="text-[var(--accent)]">like a living thing.</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--foreground-muted)]">
-            GLEE is a collection of 4000 generative gradient artworks on Robinhood Chain.
+            GLEE is a collection of 2200 generative gradient artworks on Robinhood Chain.
             Every piece is produced entirely by a smart contract, stored entirely onchain,
             and shaped by the trading behavior of everyone who holds the collection.
           </motion.p>
