@@ -44,7 +44,7 @@ export default function AboutPage() {
             <span className="text-[var(--accent)]">like a living thing.</span>
           </motion.h1>
           <motion.p variants={fadeUp} className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--foreground-muted)]">
-            GLEE is a collection of 2200 generative gradient artworks on Robinhood Chain.
+            GLEE is a collection of 3000 generative gradient artworks built on OpenSea Seadrop with fully custom onchain metadata.
             Every piece is produced entirely by a smart contract, stored entirely onchain,
             and shaped by the trading behavior of everyone who holds the collection.
           </motion.p>
@@ -80,11 +80,13 @@ export default function AboutPage() {
                 title: "Programmable by design.",
                 body: "GLEE uses the actual capabilities of the ERC-721 standard — not just for ownership, but for behavior. Transfers change the visual. Market activity changes the visual. The contract has mechanics that most NFT projects leave permanently unused.",
               },
+              /*
               {
                 n: "04",
                 title: "Built on Robinhood Chain.",
                 body: "Low fees and fast blocks make the decay mechanic viable in a way it isn't on expensive chains. Transfers happen freely enough that the collection actually accumulates a real history — and that history is what makes GLEE interesting to hold.",
               },
+              */
             ].map(({ n, title, body }) => (
               <motion.article key={n} variants={fadeUp} className="bg-[var(--background)] p-8">
                 <span className="font-[family-name:var(--font-geist-mono)] text-sm text-[var(--accent)]">{n}</span>
