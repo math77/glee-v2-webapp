@@ -5,15 +5,15 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion, type Variants } from "framer-motion";
 import Nav from "@/components/Nav/Nav";
+import {
+  CYCLADIC_DECAY_TOKENS,
+  cycladicGalleryImages,
+  cycladicImagePath,
+} from "@/utils/cycladicMedia";
 
 // ── Image data ─────────────────────────────────────────────────────────────────
-// Gallery: image1.png … imageN.png — add more files and bump this number.
-const GALLERY_COUNT = 70;
-const galleryImages = Array.from({ length: GALLERY_COUNT }, (_, i) => `/images/image${i + 1}.png`);
+const galleryImages = cycladicGalleryImages;
 
-// Decay examples: naming convention decay_token_N_Xpct.png
-// Add more tokens by adding entries here; stages are always the same 5 steps.
-const DECAY_TOKENS = [1, 2, 3, 4, 5, 6, 7, 8, 9]; // token indices in decay_examples folder
 const DECAY_STAGES = [
   { pct: 0,   label: "Origin" },
   { pct: 25,  label: "Shifting" },
@@ -21,9 +21,6 @@ const DECAY_STAGES = [
   { pct: 75,  label: "Dying" },
   { pct: 100, label: "Terminal" },
 ];
-function decayImagePath(token: number, pct: number) {
-  return `/images/decay_examples/decay_token_${token}_${pct}pct.png`;
-}
 
 // Flip to true once the OpenSea collection is live — every CTA that links to OpenSea
 // reads this flag and stays visually disabled (non-clickable, dimmed) until it's set.
@@ -74,7 +71,7 @@ function OpenSeaButton({ className = "" }: { className?: string }) {
 // ══════════════════════════════════════════════════════════════════════════════
 function HeroSection() {
   const reduceMotion = useReducedMotion();
-  // Three decay states to show side-by-side — pick token 1 at 0 / 50 / 100
+  // Three decay states of one Cycladic GLEE show the collection's transformation.
   const tripleStates = [0, 50, 100];
 
   return (
@@ -132,7 +129,7 @@ function HeroSection() {
               className="group relative aspect-square overflow-hidden"
             >
               <Image
-                src={decayImagePath([3, 6, 9][i], pct)}
+                src={cycladicImagePath(5, pct)}
                 alt={`GLEE at ${pct}% decay`}
                 fill
                 sizes="(min-width: 1024px) 340px, (min-width: 640px) 220px, 33vw"
@@ -221,7 +218,7 @@ function DecayDemoSection() {
             </h2>
             <p className="mt-6 max-w-xl leading-relaxed text-[var(--foreground-muted)]">
               Every transfer advances a shared clock across the entire collection.
-              Trade fast and your GLEE darkens faster. But here's the twist — every
+              Trade fast and your GLEE darkens faster. But here&apos;s the twist — every
               wallet in the collection feels it too. The art is a mirror of how
               the market is behaving.
             </p>
@@ -229,13 +226,13 @@ function DecayDemoSection() {
 
           {/* Token picker */}
           <motion.div variants={fadeUp} className="mt-10 flex gap-2">
-            {DECAY_TOKENS.map((t, i) => (
+            {CYCLADIC_DECAY_TOKENS.map((t, i) => (
               <button
                 key={t}
                 onClick={() => setTokenIndex(i)}
                 className={`px-3 py-1.5 font-[family-name:var(--font-geist-mono)] text-xs transition-colors border ${tokenIndex === i ? "border-[var(--accent)] text-[var(--accent)]" : "border-[var(--border-hairline)] text-[var(--foreground-muted)] hover:border-[var(--border-hairline-strong)]"}`}
               >
-                Token {t}
+                GLEE #{t}
               </button>
             ))}
           </motion.div>
@@ -253,7 +250,7 @@ function DecayDemoSection() {
                   className="absolute inset-0"
                 >
                   <Image
-                    src={decayImagePath(DECAY_TOKENS[tokenIndex], stage.pct)}
+                    src={cycladicImagePath(CYCLADIC_DECAY_TOKENS[tokenIndex], stage.pct)}
                     alt={`Token at ${stage.pct}% decay`}
                     fill
                     sizes="(min-width: 1024px) 512px, 90vw"
@@ -452,11 +449,11 @@ function ResetSection() {
           <motion.div variants={fadeUp}>
             <EyebrowQuiet>The reset</EyebrowQuiet>
             <h2 className="mt-5 font-[family-name:var(--font-fraunces)] text-4xl italic leading-tight text-[var(--foreground)] sm:text-5xl">
-              It doesn't die.<br />
+              It doesn&apos;t die.<br />
               <span className="text-[var(--accent)]">It begins again.</span>
             </h2>
             <p className="mt-6 leading-relaxed text-[var(--foreground-muted)]">
-              When the decay clock reaches its terminal point, the collection doesn't
+              When the decay clock reaches its terminal point, the collection doesn&apos;t
               need to end — the clock can be reseted back to zero. Every GLEE not locked returns to its original gradient.
               The cycle starts over.
             </p>
@@ -482,7 +479,7 @@ function ResetSection() {
                   className="absolute inset-0"
                 >
                   <Image
-                    src={decayImagePath(1, current.pct === 0 && cycleStep === 3 ? 0 : current.pct)}
+                    src={cycladicImagePath(5, current.pct === 0 && cycleStep === 3 ? 0 : current.pct)}
                     alt={current.label}
                     fill
                     sizes="400px"

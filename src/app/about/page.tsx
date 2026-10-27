@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import Nav from "@/components/Nav/Nav";
+import { cycladicImagePath } from "@/utils/cycladicMedia";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 16 },
@@ -217,7 +218,7 @@ export default function AboutPage() {
               {[0, 25, 50, 75, 100].map((pct) => (
                 <div key={pct} className="group relative aspect-square w-full overflow-hidden">
                   <Image
-                    src={`/images/decay_examples/decay_token_4_${pct}pct.png`}
+                    src={cycladicImagePath(5, pct)}
                     alt={`Decay at ${pct}%`}
                     fill
                     sizes="340px"
